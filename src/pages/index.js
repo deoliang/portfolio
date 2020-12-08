@@ -6,7 +6,7 @@ import indexStyles from './index.module.scss'
 const IndexPage = () => {
   return (
     <Layout>
-      <Head title="Home" />
+      <Head title="Home" url="https://deonliang.com" />
       <h1>Hello, my name is Deon</h1>
       <h2>I am a software developer currently based in Canada.</h2>
       <h3>I am currently looking for full time opportunities.</h3>

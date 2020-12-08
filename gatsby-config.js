@@ -7,10 +7,12 @@
 module.exports = {
   siteMetadata: {
     title: "Deon's Portfolio",
-    author: 'Deon Liang'
+    author: 'Deon Liang',
+    siteUrl: 'https://deonliang.com'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-contentful',
       options: {

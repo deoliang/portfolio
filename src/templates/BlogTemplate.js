@@ -13,13 +13,14 @@ export const query = graphql`
                 html
               }
             }
+            slug
         }
     }
 `
 const BlogTemplate = (props) => {
     return (
         <Layout>
-            <Head title={props.data.contentfulPosts.title}/>
+            <Head title={props.data.contentfulPosts.title} url={`https://deonliang.com/blog/${props.data.contentfulPosts.slug}`}/>
             <h1>{props.data.contentfulPosts.title}</h1>
             <p>{props.data.contentfulPosts.publishedDate}</p>
             <div dangerouslySetInnerHTML={{__html: props.data.contentfulPosts.content.childMarkdownRemark.html}}></div>
