@@ -26,7 +26,7 @@ A portfolio site built with gatsby.js, scss and with blog content served from [C
     You are able to test graphql queries on the link [http://localhost:8000/___graphql](http://localhost:8000/___graphql)
 
 ## Live deployment
-The site is currently deployed with Vercel and can be reached [here](deonliang.com)
+The site is currently deployed with Vercel and can be reached [here](https://deonliang.com)
 
 ## References
 - [Gatsby Documentation](https://www.gatsbyjs.com/docs/) 
