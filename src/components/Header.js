@@ -1,8 +1,19 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import { useMediaQuery } from 'react-responsive'
-import headerStyles from './header.module.scss'
-
+import {
+    header,
+    title,
+    menuContainer,
+    menuOff,
+    menuOn,
+    crossOn,
+    crossOff,
+    navResponsive,
+    navList,
+    navItem,
+    activeNavItem,
+} from './header.module.scss'
+import { routesArray } from '../utils/routes'
 
 const Header = () => {
     const data = useStaticQuery(graphql`
@@ -14,38 +25,50 @@ const Header = () => {
             }   
         }
     `)
-    const isBigScreen = useMediaQuery({ query: '(min-width: 640px)' })
     const [isOpen, setOpen] = useState(false)
+    useEffect(() => {
+        const onResize = () => {
+            if (window.innerWidth > 640) {
+                setOpen(false)
+            }
+        }
+        window.addEventListener('resize', onResize);
+
+
+        return () => {
+            window.removeEventListener('resize', () => onResize);
+        };
+    }, []);
+
 
     const handleClick = () => {
         setOpen(!isOpen)
     }
 
-    useEffect(()=>{
-            setOpen(false) 
-    },[isBigScreen])
+
+    const renderedItems = routesArray.map((route) => {
+        return (
+            <li key={route.name}><Link className={navItem} activeClassName={activeNavItem} to={route.path}>{route.name}</Link></li>
+        )
+    })
 
     return (
-        <header className={headerStyles.header}>
-           
+        <header className={header}>
+
             <h1>
-                <Link className={headerStyles.title} to="/">{data.site.siteMetadata.title}</Link>
+                <Link className={title} to="/">{data.site.siteMetadata.title}</Link>
             </h1>
-            <div class={headerStyles.menuContainer} >
-                <svg onClick={handleClick} className={isOpen ? headerStyles.menuOff:headerStyles.menuOn}   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className={menuContainer} >
+                <svg onClick={handleClick} className={isOpen ? menuOff : menuOn} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-                <svg onClick={handleClick} className={isOpen ? headerStyles.crossOn : headerStyles.crossOff}xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg onClick={handleClick} className={isOpen ? crossOn : crossOff} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>            
+                </svg>
             </div>
-            <div className={headerStyles.navContainer}>
-                <ul className={isOpen ? headerStyles.navResponsive : headerStyles.navList}>
-                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to="/">Home</Link> </li>
-                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to="/about">About</Link></li>
-                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to="/projects">Projects</Link></li>
-                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to="/blog">Blog</Link></li>
-                    <li><Link className={headerStyles.navItem} activeClassName={headerStyles.activeNavItem} to="/contact">Contact</Link></li>
+            <div>
+                <ul className={isOpen ? navResponsive : navList}>
+                    {renderedItems}
                 </ul>
             </div>
         </header>

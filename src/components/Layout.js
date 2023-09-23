@@ -1,20 +1,19 @@
 import React from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from './Header'
+import Footer from './Footer'
 import '../styles/styles.scss'
-import layoutStyles from './layout.module.scss'
+import { container, content } from './layout.module.scss'
 
-
-const Layout = (props) => {
-    return (
-        <div className={layoutStyles.container}>
-            <div className={layoutStyles.content}>
-                <Header />
-                {props.children}
-            </div>
-            <Footer />
-        </div>
-    )
+const Layout = ({ children }) => {
+  return (
+    <div className={container}>
+      <div className={content}>
+        <Header />
+        {children}
+      </div>
+      <Footer />
+    </div>
+  )
 }
 
 export default Layout

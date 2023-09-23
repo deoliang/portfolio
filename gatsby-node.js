@@ -1,4 +1,5 @@
-const path = require('path')
+
+const path = require('node:path');
 
 module.exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
@@ -14,12 +15,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
           }
         }
     `)
-    res.data.allContentfulPosts.edges.forEach((edge)=>{
+
+    res.data.allContentfulPosts.edges.forEach((edge) => {
         createPage({
             component: blogTemplate,
             path: `/blog/${edge.node.slug}`,
             context: {
-                slug: edge.node.slug
+                slug: edge.node.slug,
             }
         })
     })

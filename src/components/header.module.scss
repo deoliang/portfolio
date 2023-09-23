@@ -1,44 +1,51 @@
-@mixin title-text{
-    color:#000000;
+@mixin title-text {
+    color: #000000;
     text-decoration: none;
 }
-@mixin nav-item-text{
-    color:#999999;
+
+@mixin nav-item-text {
+    color: #999999;
     font-size: 1.1rem;
     margin-right: 1.3rem;
     text-decoration: none;
 }
-.header{
+
+.header {
     padding: 1rem 0 3rem;
 }
+
 @media (min-width: 640px) {
-    .nav-list{
+    .nav-list {
         display: flex;
         list-style-type: none;
         margin: 0;
     }
-    
+
     .nav-item {
         @include nav-item-text
     }
-    .nav-item:hover{
-        color:#666666;
+
+    .nav-item:hover {
+        color: #666666;
     }
 
-    .menuContainer{
-        display:none;
+    .menu-container {
+        display: none;
     }
-    .title{
+
+    .title {
         @include title-text;
         font-size: 5.25rem;
     }
-    
+
 }
-@media  (max-width: 640px) {
-    .nav-list{
+
+@media (max-width: 640px) {
+    .nav-list {
         display: none;
     }
-    .nav-responsive{
+
+    .nav-responsive {
         display: flex;
         flex-direction: column;
         list-style-type: none;
@@ -48,40 +55,47 @@
         animation-duration: 0.3s;
         margin: 0;
     }
+
     .nav-item {
         @include nav-item-text
     }
-    .nav-item:hover{
-        color:#666666;
+
+    .nav-item:hover {
+        color: #666666;
     }
-    .title{
+
+    .title {
         @include title-text;
         font-size: 3rem;
-       
+
     }
-    .menuContainer{
+
+    .menu-container {
         display: flex;
         justify-content: center;
-        
-        .menuOn{
-            width:1.75rem; 
+
+        .menu-on {
+            width: 1.75rem;
             cursor: pointer;
         }
-        .menuOff{
-            display:none
+
+        .menu-off {
+            display: none
         }
-        .crossOn{
-            width:1.75rem;
-        
+
+        .cross-on {
+            width: 1.75rem;
+
             cursor: pointer
         }
-        .crossOff{
-            display:none
+
+        .cross-off {
+            display: none
         }
-        
-       
+
+
     }
-    
+
 
 }
 
@@ -93,10 +107,11 @@
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

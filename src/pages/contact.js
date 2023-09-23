@@ -1,16 +1,14 @@
 import React from 'react'
-
 import Layout from '../components/Layout'
-import Head from '../components/Head'
-import contactStyles from './contact.module.scss'
+import { contactLink } from './contact.module.scss'
+import Seo from '../components/Seo'
 
 const ContactPage = () => {
     return (
         <Layout>
-            <Head title="Contact" url="https://deonliang.com/contact"/>
             <div>
                 <h1>Contact me</h1>
-                <p>You can send me an general inquiry  <a className={contactStyles.contactLink} href={process.env.GATSBY_FORM_URL}>here</a></p>
+                <p>You can send me an general inquiry  <a className={contactLink} href={process.env.GATSBY_FORM_URL}>here</a></p>
             </div>
         </Layout>
 
@@ -18,3 +16,7 @@ const ContactPage = () => {
 }
 
 export default ContactPage
+
+export const Head = ({ location }) => (
+    <Seo title='Contact' pathName={location.pathname} />
+)

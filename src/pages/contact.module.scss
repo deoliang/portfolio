@@ -1,8 +1,7 @@
+.contact-link {
+    color: #999999;
 
-.contactLink{
-    color:#999999;
-}
-
-.contactLink:hover{
-    color: #5b5b5b;
+    &:hover {
+        color: #5b5b5b;
+    }
 }
