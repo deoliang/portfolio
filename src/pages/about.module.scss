@@ -1,0 +1,18 @@
+.profile {
+	border-radius: 50%;
+}
+
+.about-link {
+	color: #999999;
+	&:hover {
+		color: #5b5b5b;
+	}
+}
+
+@media (max-width: 640px) {
+	.profile {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

@@ -1,0 +1,117 @@
+@mixin title-text {
+    color: #000000;
+    text-decoration: none;
+}
+
+@mixin nav-item-text {
+    color: #999999;
+    font-size: 1.1rem;
+    margin-right: 1.3rem;
+    text-decoration: none;
+}
+
+.header {
+    padding: 1rem 0 3rem;
+}
+
+@media (min-width: 640px) {
+    .nav-list {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .nav-item {
+        @include nav-item-text
+    }
+
+    .nav-item:hover {
+        color: #666666;
+    }
+
+    .menu-container {
+        display: none;
+    }
+
+    .title {
+        @include title-text;
+        font-size: 5.25rem;
+    }
+
+}
+
+@media (max-width: 640px) {
+    .nav-list {
+        display: none;
+    }
+
+    .nav-responsive {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-timing-function: ease-out;
+        animation-duration: 0.3s;
+        margin: 0;
+    }
+
+    .nav-item {
+        @include nav-item-text
+    }
+
+    .nav-item:hover {
+        color: #666666;
+    }
+
+    .title {
+        @include title-text;
+        font-size: 3rem;
+
+    }
+
+    .menu-container {
+        display: flex;
+        justify-content: center;
+
+        .menu-on {
+            width: 1.75rem;
+            cursor: pointer;
+        }
+
+        .menu-off {
+            display: none
+        }
+
+        .cross-on {
+            width: 1.75rem;
+
+            cursor: pointer
+        }
+
+        .cross-off {
+            display: none
+        }
+
+
+    }
+
+
+}
+
+
+
+
+.active-nav-item {
+    color: #333333;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

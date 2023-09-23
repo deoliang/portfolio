@@ -1,0 +1,32 @@
+.projects {
+    list-style-type: none;
+    margin: 0;
+}
+
+.project {
+    background: #f4f4f4;
+    padding: 1rem;
+
+    h2 {
+        margin-bottom: 0.2rem;
+    }
+}
+
+.links-list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+.link-text {
+    margin-right: 0.8rem;
+
+    a {
+        color: #999999;
+
+        &:hover {
+            color: #5b5b5b;
+        }
+    }
+
+}
