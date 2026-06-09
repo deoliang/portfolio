@@ -27,6 +27,9 @@
     "react-dom": "^18.2.0",
     "sass": "^1.97.3"
   },
+  "overrides": {
+    "axios": ">=1.16.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
